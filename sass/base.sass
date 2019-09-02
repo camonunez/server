@@ -1,0 +1,33 @@
+@import "vars"
+$font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+$font-size: 14px
+$font-family-h: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+
+html, body
+	background-color: #fff
+	font-family: $font-family
+	margin: 0
+	font-size: $font-size
+	color: #333
+	@media screen and (max-width: 340px)
+		font-size: 12px
+
+img
+	max-width: 100%
+
+input, textarea, select, button
+	font-family: $font-family
+
+*
+	box-sizing: border-box
+
+a
+	color: inherit
+	text-decoration: none
+	&:hover, &:focus, &:visited
+		color: inherit
+
+h1, h2, h3, h4, h5, h6
+	font-family: $font-family-h
+	margin: 0
+	font-weight: 300

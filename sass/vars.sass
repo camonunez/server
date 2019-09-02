@@ -1,0 +1,296 @@
+$fzbase: 14 !default
+=fzxxs
+	font-size: (10/$fzbase) * 1em
+=fzxs
+	font-size: (12/$fzbase) * 1em
+=fzs
+	font-size: (13/$fzbase) * 1em
+=fz
+	font-size: (14/$fzbase) * 1em
+=fzm
+	font-size: (15/$fzbase) * 1em
+=fzl
+	font-size: (17/$fzbase) * 1em
+=fzxl
+	font-size: (20/$fzbase) * 1em
+
+=fzRxs
+	font-size: 12px
+=fzRs
+	font-size: 13px
+=fzR
+	font-size: 14px
+=fzRm
+	font-size: 16px
+=fzRl
+	font-size: 18px
+=fzRxl
+	font-size: 20px
+
+$fuenteFallback: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !default
+$fuente: $fuenteFallback !default
+$fuenteTitulos: $fuenteFallback !default
+
+=black
+	font-weight: 700
+=bold
+	font-weight: 500
+=normal
+	font-weight: 400
+=light
+	font-weight: 300
+
+// Titulos
+
+=titulo
+	font-family: $fuenteTitulos
+	font-weight: 300
+	margin: 0
+$factor: 1.1
+=h1
+	+titulo
+	font-size: $factor * 2.2rem
+=h2
+	+titulo
+	font-size: $factor * 1.5rem
+=h3
+	+titulo
+	font-size: $factor * 1.17rem
+=h4
+	+titulo
+	font-size: $factor * 1rem
+=h5
+	+titulo
+	font-size: $factor * .83rem
+=h6
+	+titulo
+	font-size: .67rem
+
+// COLORES
+
+$magenta: #FF00FF
+$cyan: #26dafd
+
+$colorMarca: #fc6f06
+
+$link: #0a6acf
+$primero: #0a6acf
+$azul: #0a6acf
+$segundo: tomato
+$tercero: mediumseagreen
+$cuarto: lightseagreen
+$quinto: mediumvioletred
+
+$peligro: orangered
+$exito: teal
+$info: #333
+$ctexto: #333
+
+$gris: #333
+
+$radio: 6px !default
+$rem: 16px !default
+$Radio: 1 * $rem !default
+=brad
+	border-radius: $radio
+=radio
+	border-radius: $radio
+=Radio
+	border-radius: $Radio
+
+=bgcov
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+
+=bgcon
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: center
+
+=micov
+	mask-size: cover
+	mask-repeat: no-repeat
+	mask-position: center
+=micon
+	mask-size: contain
+	mask-repeat: no-repeat
+	mask-position: center
+
+
+// ANIMACIONES
+@keyframes ovh // Para quitarle el overflow hidden a algo colapsado q se despliega
+	0%
+		overflow: hidden
+	99%
+		overflow: hidden
+	100%
+		overflow: initial
+
+$sombra: 0 0 1rem rgba(0,0,0,.05)
+$Sombra: 0 0 $rem transparentize(black, .75)
+$sombraAbajo: rgba(45,45,45,0.05) 0px 2px 2px, rgba(49,49,49,0.05) 0px 4px 4px, rgba(42,42,42,0.05) 0px 8px 8px, rgba(32,32,32,0.05) 0px 16px 16px, rgba(49,49,49,0.05) 0px 32px 32px, rgba(35,35,35,0.05) 0px 64px 64px
+=sombraMovil
+	box-shadow: 0 0 1rem rgba(0,0,0,.05)
+=sombra
+	box-shadow: 0 0 3rem transparentize(black, .9)
+=sombra2
+	box-shadow: $sombra, $sombra
+=sombraHover
+	+sombra
+=sombraSimple
+	box-shadow: 0 2px 20px 0 rgba(0,0,0,0.05)
+=sombraCool
+	+sombraSimple
+	&:hover
+		+sombraHover
+
+=Sombra
+	box-shadow: $Sombra
+
+
+=IEonly
+	@supports (-ms-ime-align: auto)
+		@content
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+		@content
+
+=clipText
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+	+IEonly
+		color: white
+		-webkit-background-clip: initial
+		-webkit-text-fill-color: initial
+		background-color: transparent
+		background-image: none
+
+
+=maximizar
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+
+=degradar($colorMarca: red, $grados: 30deg)
+	+normal
+	border: none
+	letter-spacing: normal
+	background-color: $colorMarca
+	color: white
+	&:hover, &:focus, &:visited
+		color: white
+	//$grados: 20deg
+	$transparenciaDegradado: 0
+	background-image: linear-gradient(to bottom right, transparentize(adjust_hue($colorMarca, -1 * $grados), $transparenciaDegradado) 0%, transparentize(adjust_hue($colorMarca, $grados), $transparenciaDegradado) 100%)
+	&:last-child
+		$colorMarca: adjust_hue($colorMarca, $grados)
+		background-image: linear-gradient(to bottom right, transparentize(adjust_hue($colorMarca, -1 * $grados), $transparenciaDegradado) 0%, transparentize(adjust_hue($colorMarca, $grados), $transparenciaDegradado) 100%)
+
+=IEonly
+	@supports (-ms-ime-align: auto)
+		@content
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+		@content
+
+=clipText
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+	+IEonly
+		color: white
+		-webkit-background-clip: initial
+		-webkit-text-fill-color: initial
+		background-color: transparent
+		background-image: none
+
+.clipear
+	+clipText
+
+=boton
+	display: inline-block
+	padding: .5em .8em
+	background-color: #3ecf8e
+	color: white
+	+bold
+	border-radius: $radio
+
+
+
+=saliendo
+	transition: all .3s ease
+	&.v-enter-active, &.v-leave-active
+		@content
+=salir
+	transition: all .3s ease
+	&.v-enter, &.v-leave-to
+		@content
+
+
+=entrada
+	transition: all .3s ease
+	&.v-enter
+		@content
+=fuera
+	transition: all .3s ease
+	&.v-leave-to
+		@content
+
+.degradar
+	+degradar
+.clipear
+	+clipText
+
+
+$anchoBase: 1000px
+$compuhd: "(min-width: 1367px)"
+$compu: "(max-width: 1367px) and (min-width: 600px)"
+$movil: "(max-width: 600px)"
+$nomovil: "(min-width: 600px)"
+
+=nomovil
+	@media #{$nomovil}
+		@content
+=compuhd
+	@media #{$compuhd}
+		@content
+=compu
+	@media #{$compu}
+		@content
+=movil
+	@media #{$movil}
+		@content
+=android
+	@media #{$movil}
+		@supports not (-webkit-overflow-scrolling: touch)
+			@content
+=apple
+	@supports (-webkit-overflow-scrolling: touch)
+		@media #{$movil}
+			@content
+=fullscreen
+	&:-webkit-full-screen
+		@content
+	&:-moz-full-screen
+		@content
+	//&:full-screen
+		@content
+
+=contenedor
+	margin: 0 auto
+	max-width: 100%
+	+nomovil
+	+compuhd
+		width: 1110px
+	+compu
+		width: 1110px
+	+movil
+
+
+@function sombraLarga($color, $profundidad, $inicio: 1)
+	$val: 0px 0px $color
+	@for $i from $inicio through $profundidad
+		$val: #{$val}, #{$i}px #{$i}px #{$color}
+		@if $inicio < $profundidad
+			$val: #{$val}, #{$i + .5}px #{$i + .5}px #{$color}
+	@return $val

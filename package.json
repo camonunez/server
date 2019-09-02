@@ -1,0 +1,58 @@
+{
+  "name": "server",
+  "version": "2.0.1",
+  "description": "Servidor base para front, static, back o todos",
+  "author": "camonunez <camonunez@gmail.com>",
+  "private": true,
+  "license": "UNLICENSED",
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "3000"
+    }
+  },
+  "scripts": {
+    "dev": "MODO=desarrollo nuxt",
+    "build": "MODO=produccion nuxt build",
+    "start": "MODO=produccion nuxt start",
+    "a": "MODO=produccion nuxt build -a",
+    "precommit": "npm run lint",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@nuxtjs/sentry": "3.0.0",
+    "@sentry/node": "4.6.3",
+    "@sentry/webpack-plugin": "^1.6.2",
+    "async-validator": "^1.10.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
+    "chokidar": "^3.0.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "node-sass": "^4.9.3",
+    "nuxt": "^2.9.2",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "qs": "^6.7.0",
+    "sass-loader": "^7.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-component": "^1.1.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-vue-app": "^2.0.0",
+    "eslint": "^5.6.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-html": "6.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "eslint-plugin-vue": "^4.7.1"
+  }
+}
