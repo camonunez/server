@@ -1,18 +1,22 @@
 # app
 
-> Nuxt.js project
+> Server base para servir front con nuxt, back con express y static en carpeta static
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+$ yarn
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn dev
 
 # build for production and launch server
-$ npm start
+$ yarn build && yarn start
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+El puerto se configura en package.json
+
+El back está en la carpeta server
+El static en static
+Las páginas se ponen en la carpeta pages. Más info de como usar nuxt en [nuxt.org](nuxt.org)
